@@ -78,6 +78,7 @@ async def download_video(url: str, download_type: str = "video"):
             ydl_opts.update({
                 'format': 'best[ext=mp4]/best',
                 'merge_output_format': 'mp4',
+                'cookiefile': 'instagram_cookies.txt',
             })
     
     elif is_youtube:

@@ -7,6 +7,10 @@ from asyncio import run
 import yt_dlp
 import shutil
 
+import subprocess
+
+subprocess.run(["ffmpeg", "-version"])
+
 API_TOKEN = "8227650573:AAEKVFpakLCx_qeAXYIhvqfqoGmbykBomwY"
 DOWNLOAD_MANZIL = 'downloads'
 TEMP_MANZIL = 'temp'

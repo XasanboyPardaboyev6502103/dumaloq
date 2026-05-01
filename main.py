@@ -99,8 +99,11 @@ async def download_video(url: str, download_type: str = "video"):
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=True)
-            
-            if 'entries' in info:
+
+            if not info:
+                return None, None, "Video topilmadi yoki bloklangan"
+
+            if isinstance(info, dict) and 'entries' in info:
                 info = info['entries'][0]
             
             file_name = ydl.prepare_filename(info)
